@@ -87,6 +87,53 @@ Or positional:
 
 It does not remove the underlines from tag to use in title. I have not found a Hugo template function for that yet (perhaps there is one).
 
+### Octopress blockquote (blockquote.html)
+Port of the Octopress `blockquote` plugin at http://octopress.org/docs/plugins/blockquote/.
+
+It supports author, link, source and title. If title is not provided and link is longer than 32 characters, it is cut at the last forward slash similar to the original plugin.
+
+It can be used as follows (also in `tests/wp-test.markdown`):
+
+    Normal quote:
+    {{< blockquote >}}
+      This is a simple quote.
+    {{< /blockquote >}}
+
+    Quote with author
+    {{< blockquote author="Author2" >}}
+      This is a quote with only an Author named Author2.
+    {{< /blockquote >}}
+
+    Quote with author and source
+    {{< blockquote author="Author3" source="Source" >}}
+      This is a quote from Author3 and source "source."
+    {{< /blockquote >}}
+
+    Quote with author and link
+    {{< blockquote author="Author4" link="https://www.google.com" >}}
+      This is a quote from Author4 and links to https://www.google.com.
+    {{< /blockquote >}}
+
+    Quote with author, link and title
+    {{< blockquote author="Author5" link="https://www.google.com" title="Google" >}}
+      This is a quote from Author5 and links to https://www.google.com with title "Google."
+    {{< /blockquote >}}
+
+    Quote with author and a link longer than 32 characters, string is first cut at 32 characters then everything after the last forward slash is removed
+    {{< blockquote author="Author6" link="https://twitter.com/CryptoGangsta/status/716427930126196737" >}}
+      This is a quote from Author5 and links to https://twitter.com/CryptoGangsta/status/716427930126196737 which is longer than 32 characters.
+      <br>And this is a new line in the quote with the HTML br tag.
+    {{< /blockquote >}}
+
+    Test from the Octopress blockquote page at: http://octopress.org/docs/plugins/blockquote/
+    {{< blockquote author="@allanbranch" link="https://twitter.com/allanbranch/status/90766146063712256" >}}
+      Over the past 24 hours I've been reflecting on my life & I've realized only one thing. I need a medieval battle axe.
+    {{< blockquote >}}
+
+Results in:
+
+![blockquote-test](images/blockquote.png)
+
 ## Atom snippets for shortcodes
 
 I use Atom editor these days so I created a couple of snippets to insert these shortcodes while editing Markdown files. In order to read on how to create snippets please refer to [Atom's Snippets package](https://github.com/atom/snippets).
