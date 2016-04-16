@@ -33,6 +33,9 @@
     {{ range last 1 (split ($.Scratch.Get "bl_link" ) "://") }}  <!-- split by :// and then only take the items after it to remove protocol:// -->
       {{ $.Scratch.Set "title_without_protocol" . }}
     {{ end }}
+    {{ range last 1 (split ($.Scratch.Get "title_without_protocol" ) "www.")  }} <!-- also remove the www. at the start if any. we are using a second split because all URLS may not start with it -->
+      {{ $.Scratch.Set "title_without_protocol" . }}
+    {{ end }}
     {{ $.Scratch.Set "bl_title" ($.Scratch.Get "title_without_protocol") }}
 
     <!-- if link is longer than 32 bytes we should trim it -->
