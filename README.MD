@@ -4,28 +4,44 @@ These are shortcodes that I have created for the [Hugo](https://gohugo.io) stati
 
 To use them, copy the HTML files into `your-hugo-blog/layouts/shortcodes/` or `your-hugo-blog/themes/current-theme/layouts/shortcodes/`. I do not suggest the second approach. Create the `shortcodes` directory if it does not exist. You can learn more about shortcodes from [Hugo documentation](https://gohugo.io/extras/shortcodes/).
 
+<!-- MarkdownTOC -->
+
+  - [Codecaption \(codecaption.html\)](#codecaption-codecaptionhtml)
+  - [Image Caption \(imgcap.html\)](#image-caption-imgcaphtml)
+  - [Wikipedia Link Generator \(wp.html\)](#wikipedia-link-generator-wphtml)
+  - [Octopress blockquote \(blockquote.html\)](#octopress-blockquote-blockquotehtml)
+- [Editor Snippets](#editor-snippets)
+  - [Sublime Text Completions](#sublime-text-completions)
+  - [Atom Snippets](#atom-snippets)
+- [License](#license)
+
+<!-- /MarkdownTOC -->
+
+
+<a name="codecaption-codecaptionhtml"></a>
 ### Codecaption (codecaption.html)
 Adds title to code blocks.
 
 **Usage:**
 
 ``` html
-    {{< codecaption lang="html" title="Code caption shortcode" >}}
-    <figure class="code">
-      <figcaption>
-        <span>{{ .Get "title" }}</span>
-      </figcaption>
-      <div class="codewrapper">
-        {{ highlight .Inner (.Get "lang") "linenos=true" }}
-      </div>
-    </figure>
-    {{< /codecaption >}}
+{{< codecaption lang="html" title="Code caption shortcode" >}}
+<figure class="code">
+  <figcaption>
+    <span>{{ .Get "title" }}</span>
+  </figcaption>
+  <div class="codewrapper">
+    {{ highlight .Inner (.Get "lang") "linenos=true" }}
+  </div>
+</figure>
+{{< /codecaption >}}
 ```
 
 Results in:
 
 ![Captioned codeblock](/images/codecaption1.png)
 
+<a name="image-caption-imgcaphtml"></a>
 ### Image Caption (imgcap.html)
 This shortcode adds captions to pictures. Due to the way the original css file was organized, this shortcode does not use `<figure>` and `<figcaption>`. `Alt` will also be set to title.
 
@@ -42,6 +58,7 @@ Results in HTML:
 </span>
 ```
 
+<a name="wikipedia-link-generator-wphtml"></a>
 ### Wikipedia Link Generator (wp.html)
 I attempted to the re-create the Jekyll Wikipedia link generator by [Keltia](https://github.com/keltia). You can see the source [here](https://github.com/keltia/octopress/commit/17b975067ff86c0c7cddac4ae2c2c975b0790b6e).
 
@@ -87,6 +104,7 @@ Or positional:
 
 It does not remove the underlines from tag to use in title. I have not found a Hugo template function for that yet (perhaps there is one).
 
+<a name="octopress-blockquote-blockquotehtml"></a>
 ### Octopress blockquote (blockquote.html)
 Port of the Octopress `blockquote` plugin at http://octopress.org/docs/plugins/blockquote/.
 
@@ -134,8 +152,30 @@ Results in:
 
 ![blockquote-test](images/blockquote.png)
 
-## Atom snippets for shortcodes
+<a name="editor-snippets"></a>
+## Editor Snippets
+I have created snippets for both Sublime Text and Atom.
 
+<a name="sublime-text-completions"></a>
+### Sublime Text Completions
+[Sublime text completions](http://docs.sublimetext.info/en/latest/reference/completions.html) are stored in a `.sublime-completion` file in `User` directory.
+
+``` json
+{
+   "scope": "text.html.markdown - source - meta.tag, punctuation.definition.tag.begin",
+
+   "completions":
+   [
+      { "trigger": "codecap\tCodecaption Hugo Shortcode", "contents": "{{< codecaption title=\"$1\" lang=\"$2\" >}}\n${3:default text}\n{{< /codecaption >}}" },
+      { "trigger": "imgcap\tImagecaption Hugo Shortcode", "contents": "{{< imgcap title=\"$1\" src=\"/images/2017/${2:1.png}\" >}}" },
+      { "trigger": "wp\tWikipedia Link Generator Hugo Shortcode", "contents": "{{< imgcap tag=\"$1\" lang=\"$2\" title=\"$3\" >}}" },
+      { "trigger": "blockquote\tBlock quote Hugo Shortcode", "contents": "{{< blockquote author=\"$1\" link=\"$2\" title=\"$3\" >}}\n{$4:quote text}\n{{< /codecaption >}}" }
+   ]
+}
+```
+
+<a name="atom-snippets"></a>
+### Atom Snippets
 I use Atom editor these days so I created a couple of snippets to insert these shortcodes while editing Markdown files. In order to read on how to create snippets please refer to [Atom's Snippets package](https://github.com/atom/snippets).
 
 Open your snippets file (on Windows it's `File > Open Your Snippets`) and paste the following in the file:
@@ -155,13 +195,19 @@ Open your snippets file (on Windows it's `File > Open Your Snippets`) and paste 
   'wp':
     'prefix': 'wp'
     'body': '{{< wp tag="$1" lang="$2" title="$3" >}}'
+  'blockquote':
+    'prefix': 'blockquote'
+    'body': """
+    {{< blockquote author="$1" link="$2" title="$3" >}}
+    $4
+    {{< /blockquote >}}
+    """
 ```
 
 My original mistake was to repeat `'.source.gfm'` before the `imgcap` snippet, seems like [cson keys should not be repeated](https://atom.io/docs/latest/using-atom-basic-customization#id-D9ATX).
 
 You can trigger the shortcodes by entering `imgcap` and `codecap` respectively and then pressing enter. You can change these by modifying the `prefix` in the code above. After inserting the shortcode, the cursor will go to the first location which is designated by `$1` which is `title` in both cases. After entering the value you can go to `$2` and `$3` by pressing `tab`.
 
-Hopefully these snippets help in using these shortcodes.
-
+<a name="license"></a>
 ## License
 I don't know, [MIT](LICENSE) I guess.

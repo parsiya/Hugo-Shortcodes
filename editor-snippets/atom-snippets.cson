@@ -1,0 +1,21 @@
+'.source.gfm':
+  'codecaption':
+    'prefix': 'codecap'
+    'body': """
+    {{< codecaption title="$1" lang="$2"  >}}
+    $3
+    {{< /codecaption >}}
+    """
+  'imgcap':
+    'prefix': 'imgcap'
+    'body': '{{< imgcap title="$1" src="/images/2016/$2" >}}'
+  'wp':
+    'prefix': 'wp'
+    'body': '{{< wp tag="$1" lang="$2" title="$3" >}}'
+  'blockquote':
+    'prefix': 'blockquote'
+    'body': """
+    {{< blockquote author="$1" link="$2" title="$3" >}}
+    $4
+    {{< /blockquote >}}
+    """
