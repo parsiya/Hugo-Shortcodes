@@ -64,6 +64,12 @@
         <cite>
           <a href="{{ . }}" title="{{ . }}">{{ $.Scratch.Get "bl_title" }}</a> <!-- can't have new lines here -->
         </cite>
+      {{ else }}
+        {{ with $.Scratch.Get "bl_title" }}
+          <cite>
+            {{ $.Scratch.Get "bl_title" }}</a>
+          </cite>
+        {{ end }}
       {{ end }}
     {{ end }}
   </footer>
