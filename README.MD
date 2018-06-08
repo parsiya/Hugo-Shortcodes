@@ -12,6 +12,7 @@ To use them, copy the HTML files into `your-hugo-blog/layouts/shortcodes/` or `y
   - [Year (year.html)](#year-yearhtml)
 - [Editor Snippets](#editor-snippets)
   - [Sublime Text Completions](#sublime-text-completions)
+  - [VS Code Snippets](#vs-code-snippets)
   - [Atom Snippets](#atom-snippets)
 - [License](#license)
 
@@ -170,8 +171,35 @@ I have created snippets for both Sublime Text and Atom.
 }
 ```
 
+### VS Code Snippets
+VS Code snippets look nicer than the other two:
+
+``` json
+{
+    "codecaption": {
+		"prefix": "codecap",
+		"body": [
+			"{{< codecaption title=\"${1:title}\" lang=\"${2:language}\" >}}",
+			"${3:code}",
+			"{{< /codecaption >}}",
+			"",
+			"$0"
+		],
+		"description": "codecaption Hugo shortcode"
+	},
+	"imgcap": {
+		"prefix": "imgcap",
+		"body": [
+			"{{< imgcap title=\"${1:title}\" src=\"${2:filename}.png\" >}}",
+			"$0"
+		],
+		"description": "image caption Hugo shortcode"
+	},
+}
+```
+
 ### Atom Snippets
-I use Atom editor these days so I created a couple of snippets to insert these shortcodes while editing Markdown files. In order to read on how to create snippets please refer to [Atom's Snippets package](https://github.com/atom/snippets).
+~~I use Atom editor these days so~~ I created a couple of snippets to insert these shortcodes while editing Markdown files. In order to read on how to create snippets please refer to [Atom's Snippets package](https://github.com/atom/snippets).
 
 Open your snippets file (on Windows it's `File > Open Your Snippets`) and paste the following in the file:
 
