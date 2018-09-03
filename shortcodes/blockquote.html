@@ -1,14 +1,7 @@
 
 <!-- Author: Parsia Hakimian https://github.com/parsiya/Hugo-Shortcodes -->
 <!-- port of Octopress blockquote plugin http://octopress.org/docs/plugins/blockquote/ to Hugo
-
-  Usage:
-
-  {{< blockquote author="AuthorName" link="https://www.example.com" title="MyTitle" source="MySource" >}}
-    Actual Quote.
-  {{< /blockquote >}}
-
--->
+     see readme for usage -->
 
 <!-- reset scratch variables at the start -->
 {{ $.Scratch.Set "bl_author" false }}
@@ -26,7 +19,8 @@
 {{ end }}
 
 <!-- if title is not set explicitly then we need to beautify the link
-     if length of link is more than 32 chars, we will cut it off by 32 and then drop everything after the last / if any and put it in into title -->
+     if length of link is more than 32 chars, we will cut it off by 32 and
+     then drop everything after the last / if any and put it in into title -->
 
 {{ with $.Scratch.Get "bl_title" }}
   <!-- do nothing -->
