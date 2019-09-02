@@ -147,89 +147,31 @@ Results in:
 ![blockquote-test](images/blockquote.png)
 
 ### Year (year.html)
-Displays current year - based on shortcode tutorial at https://gohugo.io/templates/shortcode-templates/#single-word-example-year.
+Displays the current year - based on shortcode tutorial at https://gohugo.io/templates/shortcode-templates/#single-word-example-year.
 
 Usage: `{{< year >}}`.
 
 ## Editor Snippets
-I have created snippets for both Sublime Text and Atom.
+I have created snippets for Atom, Sublime and VS Code.
 
 ### Sublime Text Completions
-[Sublime text completions](http://docs.sublimetext.info/en/latest/reference/completions.html) are stored in a `.sublime-completion` file in `User` directory.
-
-``` json
-{
-   "scope": "text.html.markdown - source - meta.tag, punctuation.definition.tag.begin",
-
-   "completions":
-   [
-      { "trigger": "codecap\tCodecaption Hugo Shortcode", "contents": "{{< codecaption title=\"$1\" lang=\"$2\" >}}\n${3:default text}\n{{< /codecaption >}}" },
-      { "trigger": "imgcap\tImagecaption Hugo Shortcode", "contents": "{{< imgcap title=\"$1\" src=\"/images/2017/${2:1.png}\" >}}" },
-      { "trigger": "wp\tWikipedia Link Generator Hugo Shortcode", "contents": "{{< imgcap tag=\"$1\" lang=\"$2\" title=\"$3\" >}}" },
-      { "trigger": "blockquote\tBlock quote Hugo Shortcode", "contents": "{{< blockquote author=\"$1\" link=\"$2\" title=\"$3\" >}}\n{$4:quote text}\n{{< /codecaption >}}" }
-   ]
-}
-```
+[Sublime text completions](http://docs.sublimetext.info/en/latest/reference/completions.html) are stored in a `.sublime-completion` file in the `User` directory.
 
 ### VS Code Snippets
-VS Code snippets look nicer than the other two:
+[VS Code snippets](editor-snippets/vs-code-markdown.json) can be added to `File > Preferences > User Snippets > markdown.json`. For more information please see:
 
-``` json
-{
-    "codecaption": {
-		"prefix": "codecap",
-		"body": [
-			"{{< codecaption title=\"${1:title}\" lang=\"${2:language}\" >}}",
-			"${3:code}",
-			"{{< /codecaption >}}",
-			"",
-			"$0"
-		],
-		"description": "codecaption Hugo shortcode"
-	},
-	"imgcap": {
-		"prefix": "imgcap",
-		"body": [
-			"{{< imgcap title=\"${1:title}\" src=\"${2:filename}.png\" >}}",
-			"$0"
-		],
-		"description": "image caption Hugo shortcode"
-	},
-}
-```
+* https://code.visualstudio.com/docs/editor/userdefinedsnippets
 
 ### Atom Snippets
 ~~I use Atom editor these days so~~ I created a couple of snippets to insert these shortcodes while editing Markdown files. In order to read on how to create snippets please refer to [Atom's Snippets package](https://github.com/atom/snippets).
 
-Open your snippets file (on Windows it's `File > Open Your Snippets`) and paste the following in the file:
-
-``` coffee
-'.source.gfm':
-  'codecaption':
-    'prefix': 'codecap'
-    'body': """
-    {{< codecaption title="$1" lang="$2"  >}}
-    $3
-    {{< /codecaption >}}
-    """
-  'imgcap':
-    'prefix': 'imgcap'
-    'body': '{{< imgcap title="$1" src="/images/2016/$2" >}}'
-  'wp':
-    'prefix': 'wp'
-    'body': '{{< wp tag="$1" lang="$2" title="$3" >}}'
-  'blockquote':
-    'prefix': 'blockquote'
-    'body': """
-    {{< blockquote author="$1" link="$2" title="$3" >}}
-    $4
-    {{< /blockquote >}}
-    """
-```
+Open your snippets file (on Windows it's `File > Open Your Snippets`) and paste the `editor-snippets\atom-snippets.cson` into it.
 
 My original mistake was to repeat `'.source.gfm'` before the `imgcap` snippet, seems like [cson keys should not be repeated](https://atom.io/docs/latest/using-atom-basic-customization#id-D9ATX).
 
-You can trigger the shortcodes by entering `imgcap` and `codecap` respectively and then pressing enter. You can change these by modifying the `prefix` in the code above. After inserting the shortcode, the cursor will go to the first location which is designated by `$1` which is `title` in both cases. After entering the value you can go to `$2` and `$3` by pressing `tab`.
+For more information please see:
+
+* https://flight-manual.atom.io/using-atom/sections/snippets/
 
 ## License
 I don't know, [MIT](LICENSE) I guess.

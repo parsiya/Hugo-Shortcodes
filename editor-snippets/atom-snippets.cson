@@ -13,9 +13,12 @@
     'prefix': 'wp'
     'body': '{{< wp tag="$1" lang="$2" title="$3" >}}'
   'blockquote':
-    'prefix': 'blockquote'
+    'prefix': 'bq'
     'body': """
     {{< blockquote author="$1" link="$2" title="$3" >}}
     $4
     {{< /blockquote >}}
     """
+  'year':
+    'prefix': 'year'
+    'body': '{{< year >}}'

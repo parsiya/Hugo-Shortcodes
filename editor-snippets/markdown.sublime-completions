@@ -6,6 +6,7 @@
       { "trigger": "codecap\tCodecaption Hugo Shortcode", "contents": "{{< codecaption title=\"$1\" lang=\"$2\" >}}\n${3:default text}\n{{< /codecaption >}}" },
       { "trigger": "imgcap\tImagecaption Hugo Shortcode", "contents": "{{< imgcap title=\"$1\" src=\"/images/2017/${2:1.png}\" >}}" },
       { "trigger": "wp\tWikipedia Link Generator Hugo Shortcode", "contents": "{{< imgcap tag=\"$1\" lang=\"$2\" title=\"$3\" >}}" },
-      { "trigger": "blockquote\tBlock quote Hugo Shortcode", "contents": "{{< blockquote author=\"$1\" link=\"$2\" title=\"$3\" >}}\n{$4:quote text}\n{{< /codecaption >}}" }
+      { "trigger": "bq\tBlock quote Hugo Shortcode", "contents": "{{< blockquote author=\"$1\" link=\"$2\" title=\"$3\" >}}\n{$4:quote text}\n{{< /blockquote >}}" },
+      { "trigger": "year\tCurrent Year Hugo Shortcode", "contents": "{{< year >}}" }
    ]
 }
