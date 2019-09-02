@@ -17,5 +17,44 @@
 			"$0"
 		],
 		"description": "image caption Hugo shortcode"
+	},
+	"wp": {
+		"prefix": "wp",
+		"body": [
+			"{{< wp tag=\"${1:tag}\" lang=\"${2:lang}\" title=\"${:title}\" >}}"
+		],
+		"description": "wikipedia link generator"
+	},
+	"blockquote": {
+		"prefix": "bq",
+		"body": [
+			"{{< blockquote author=\"${1:author}\" link=\"${2:link}\" title=\"${3:title}\" >}}",
+			"${4:quote}",
+			"{{< blockquote >}}",
+			"",
+			"$0"
+		],
+		"description": "blockquote"
+	},
+	"current year": {
+		"prefix": "year",
+		"body": [
+			"{{< year >}}"
+		],
+		"description": "current year"
+	},
+	"abbr": {
+		"prefix": "abbr",
+		"body": [
+			"{{< abbr title=\"$1\" text=\"$2\" >}} $3"
+		],
+		"description": "abbr HTML tag"
+	},
+	"mark": {
+		"prefix": "mark",
+		"body": [
+			"{{< mark text=\"$1\" >}} $2"
+		],
+		"description": "mark HTML tag"
 	}
 }

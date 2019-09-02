@@ -2,20 +2,31 @@
   'codecaption':
     'prefix': 'codecap'
     'body': """
-    {{< codecaption title="$1" lang="$2"  >}}
+    {{< codecaption title="$1" lang="$2" >}}
     $3
     {{< /codecaption >}}
+    $4
     """
   'imgcap':
     'prefix': 'imgcap'
-    'body': '{{< imgcap title="$1" src="/images/2016/$2" >}}'
+    'body': '{{< imgcap title="$1" src="/images/2016/$2" >}} $3'
   'wp':
     'prefix': 'wp'
-    'body': '{{< wp tag="$1" lang="$2" title="$3" >}}'
+    'body': '{{< wp tag="$1" lang="$2" title="$3" >}} $4'
   'blockquote':
-    'prefix': 'blockquote'
+    'prefix': 'bq'
     'body': """
     {{< blockquote author="$1" link="$2" title="$3" >}}
     $4
     {{< /blockquote >}}
+    $5
     """
+  'year':
+    'prefix': 'year'
+    'body': '{{< year >}} $1'
+  'abbr':
+    'prefix': 'abbr'
+    'body': '{{< abbr title="$1" text="$2" >}} $3'
+  'mark':
+    'prefix': 'mark'
+    'body': '{{< mark text="$1" >}} $2'

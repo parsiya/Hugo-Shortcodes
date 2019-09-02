@@ -3,9 +3,12 @@
 
    "completions":
    [
-      { "trigger": "codecap\tCodecaption Hugo Shortcode", "contents": "{{< codecaption title=\"$1\" lang=\"$2\" >}}\n${3:default text}\n{{< /codecaption >}}" },
-      { "trigger": "imgcap\tImagecaption Hugo Shortcode", "contents": "{{< imgcap title=\"$1\" src=\"/images/2017/${2:1.png}\" >}}" },
-      { "trigger": "wp\tWikipedia Link Generator Hugo Shortcode", "contents": "{{< imgcap tag=\"$1\" lang=\"$2\" title=\"$3\" >}}" },
-      { "trigger": "blockquote\tBlock quote Hugo Shortcode", "contents": "{{< blockquote author=\"$1\" link=\"$2\" title=\"$3\" >}}\n{$4:quote text}\n{{< /codecaption >}}" }
+      { "trigger": "codecap\tCodecaption Hugo Shortcode", "contents": "{{< codecaption title=\"$1\" lang=\"$2\" >}}\n${3:default text}\n{{< /codecaption >}}\n$4" },
+      { "trigger": "imgcap\tImagecaption Hugo Shortcode", "contents": "{{< imgcap title=\"$1\" src=\"/images/2017/${2:1.png}\" >}} $3" },
+      { "trigger": "wp\tWikipedia Link Generator Hugo Shortcode", "contents": "{{< imgcap tag=\"$1\" lang=\"$2\" title=\"$3\" >}} $4" },
+      { "trigger": "bq\tBlock quote Hugo Shortcode", "contents": "{{< blockquote author=\"$1\" link=\"$2\" title=\"$3\" >}}\n{$4:quote text}\n{{< /blockquote >}}\n$5" },
+      { "trigger": "year\tCurrent Year Hugo Shortcode", "contents": "{{< year >}} $1" },
+      { "trigger": "abbr\tabbr tag Hugo Shortcode", "contents": "{{< abbr title="$1" text="$2" >}} $3" },
+      { "trigger": "mark\tmark tag Hugo Shortcode", "contents": "{{< mark text="$1" >}} $2" }
    ]
 }
