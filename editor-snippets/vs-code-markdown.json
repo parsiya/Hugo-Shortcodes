@@ -42,5 +42,19 @@
 			"{{< year >}}"
 		],
 		"description": "current year"
+	},
+	"abbr": {
+		"prefix": "abbr",
+		"body": [
+			"{{< abbr title=\"$1\" text=\"$2\" >}} $3"
+		],
+		"description": "abbr HTML tag"
+	},
+	"mark": {
+		"prefix": "mark",
+		"body": [
+			"{{< mark text=\"$1\" >}} $2"
+		],
+		"description": "mark HTML tag"
 	}
 }

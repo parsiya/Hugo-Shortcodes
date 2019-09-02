@@ -10,6 +10,8 @@ To use them, copy the HTML files into `your-hugo-blog/layouts/shortcodes/` or `y
   - [Wikipedia Link Generator (wp.html)](#wikipedia-link-generator-wphtml)
   - [Octopress blockquote (blockquote.html)](#octopress-blockquote-blockquotehtml)
   - [Year (year.html)](#year-yearhtml)
+  - [abbr HTML Tag (abbr.html)](#abbr-html-tag-abbrhtml)
+  - [mark HTML Tag (mark.html)](#mark-html-tag-markhtml)
 - [Editor Snippets](#editor-snippets)
   - [Sublime Text Completions](#sublime-text-completions)
   - [VS Code Snippets](#vs-code-snippets)
@@ -150,6 +152,26 @@ Results in:
 Displays the current year - based on shortcode tutorial at https://gohugo.io/templates/shortcode-templates/#single-word-example-year.
 
 Usage: `{{< year >}}`.
+
+### abbr HTML Tag (abbr.html)
+Creates an `abbr` HTML tag. The structure for this tag looks like:
+
+```html
+<abbr title="World Health Organization">WHO</abbr>
+```
+
+Which is created by the following shortcode:
+
+`{{< abbr title="World Health Organization" text="WHO" >}}`
+
+### mark HTML Tag (mark.html)
+Creates a `mark` HTML tag to highlight text.
+
+Usage: `{{< mark text="highlighted text" >}}` results in the following HTML:
+
+`<mark>highlighted text</mark>`
+
+----------
 
 ## Editor Snippets
 I have created snippets for Atom, Sublime and VS Code.
