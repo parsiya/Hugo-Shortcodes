@@ -58,7 +58,7 @@
     {{ else }}
       {{ with $.Scratch.Get "bl_link" }}
         <cite>
-          <a href="{{ . }}" title="{{ . }}">{{ $.Scratch.Get "bl_title" }}</a> <!-- can't have new lines here -->
+          <a href="{{ . }}" title="{{ . }}" rel="noopener noreferrer">{{ $.Scratch.Get "bl_title" }}</a> <!-- can't have new lines here -->
         </cite>
       {{ else }}
         {{ with $.Scratch.Get "bl_title" }}
