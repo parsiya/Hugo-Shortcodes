@@ -142,7 +142,7 @@ It can be used as follows (also in `tests/wp-test.markdown`):
     Test from the Octopress blockquote page at: http://octopress.org/docs/plugins/blockquote/
     {{< blockquote author="@allanbranch" link="https://twitter.com/allanbranch/status/90766146063712256" >}}
       Over the past 24 hours I've been reflecting on my life & I've realized only one thing. I need a medieval battle axe.
-    {{< blockquote >}}
+    {{< /blockquote >}}
 
 Results in:
 
