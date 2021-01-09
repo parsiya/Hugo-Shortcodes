@@ -30,3 +30,10 @@
   'mark':
     'prefix': 'mark'
     'body': '{{< mark text="$1" >}} $2'
+  'toc':
+    'prefix': 'toc'
+    'body': """
+    {{< toc >}}
+
+    $1
+    """

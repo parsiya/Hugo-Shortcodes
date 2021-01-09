@@ -9,6 +9,7 @@
       { "trigger": "bq\tBlock quote Hugo Shortcode", "contents": "{{< blockquote author=\"$1\" link=\"$2\" title=\"$3\" >}}\n{$4:quote text}\n{{< /blockquote >}}\n$5" },
       { "trigger": "year\tCurrent Year Hugo Shortcode", "contents": "{{< year >}} $1" },
       { "trigger": "abbr\tabbr tag Hugo Shortcode", "contents": "{{< abbr title="$1" text="$2" >}} $3" },
-      { "trigger": "mark\tmark tag Hugo Shortcode", "contents": "{{< mark text="$1" >}} $2" }
+      { "trigger": "mark\tmark tag Hugo Shortcode", "contents": "{{< mark text="$1" >}} $2" },
+      { "trigger": "toc\ttable of contents Hugo Shortcode", "contents": "{{< toc >}}\n\n$1" }
    ]
 }

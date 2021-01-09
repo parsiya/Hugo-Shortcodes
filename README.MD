@@ -1,8 +1,13 @@
 ## My Hugo Shortcodes
 
-These are shortcodes that I have created for the [Hugo](https://gohugo.io) static blogging engine.
+These are shortcodes that I have created for the [Hugo](https://gohugo.io)
+static blogging engine.
 
-To use them, copy the HTML files into `your-hugo-blog/layouts/shortcodes/` or `your-hugo-blog/themes/current-theme/layouts/shortcodes/`. I do not suggest the second approach. Create the `shortcodes` directory if it does not exist. You can learn more about shortcodes from [Hugo documentation](https://gohugo.io/extras/shortcodes/).
+To use them, copy the HTML files into `your-hugo-blog/layouts/shortcodes/` or
+`your-hugo-blog/themes/current-theme/layouts/shortcodes/`. I do not suggest the
+second approach. Create the `shortcodes` directory if it does not exist. You can
+learn more about shortcodes from
+[Hugo documentation](https://gohugo.io/extras/shortcodes/).
 
 - [My Hugo Shortcodes](#my-hugo-shortcodes)
   - [Codecaption (codecaption.html)](#codecaption-codecaptionhtml)
@@ -12,6 +17,7 @@ To use them, copy the HTML files into `your-hugo-blog/layouts/shortcodes/` or `y
   - [Year (year.html)](#year-yearhtml)
   - [abbr HTML Tag (abbr.html)](#abbr-html-tag-abbrhtml)
   - [mark HTML Tag (mark.html)](#mark-html-tag-markhtml)
+  - [Table of Contents (toc.html)](#table-of-contents-tochtml)
 - [Editor Snippets](#editor-snippets)
   - [Sublime Text Completions](#sublime-text-completions)
   - [VS Code Snippets](#vs-code-snippets)
@@ -41,7 +47,9 @@ Results in:
 ![Captioned codeblock](/images/codecaption1.png)
 
 ### Image Caption (imgcap.html)
-This shortcode adds captions to pictures. Due to the way the original css file was organized, this shortcode does not use `<figure>` and `<figcaption>`. `Alt` will also be set to title.
+This shortcode adds captions to pictures. Due to the way the original css file
+was organized, this shortcode does not use `<figure>` and `<figcaption>`. `Alt`
+will also be set to title.
 
 **Usage:**
 
@@ -57,11 +65,17 @@ Results in HTML:
 ```
 
 ### Wikipedia Link Generator (wp.html)
-I attempted to the re-create the Jekyll Wikipedia link generator by [Keltia](https://github.com/keltia). You can see the source [here](https://github.com/keltia/octopress/commit/17b975067ff86c0c7cddac4ae2c2c975b0790b6e).
+I attempted to the re-create the Jekyll Wikipedia link generator by
+[Keltia](https://github.com/keltia). You can see the source
+[here](https://github.com/keltia/octopress/commit/17b975067ff86c0c7cddac4ae2c2c975b0790b6e).
 
-You can see the discussion on Hugo forums [here](https://discuss.gohugo.io/t/equivalent-to-jekyll-octopress-theme-named-cleanpress/2953) with my original [gist](https://gist.github.com/parsiya/562f5d2bde3e9060d793).
+You can see the discussion on Hugo forums
+[here](https://discuss.gohugo.io/t/equivalent-to-jekyll-octopress-theme-named-cleanpress/2953)
+with my original [gist](https://gist.github.com/parsiya/562f5d2bde3e9060d793).
 
-It has some shortcomings. There are definitely better ways to do this. Personally I prefer the named parameter version because the shortcode is easier to write but this should work for both.
+It has some shortcomings. There are definitely better ways to do this.
+Personally I prefer the named parameter version because the shortcode is easier
+to write but this should work for both.
 
 **Usage:**
 
@@ -99,12 +113,16 @@ Or positional:
 <a href="https://fr.wikipedia.org/wiki/VIC_cipher">VIC Cipher</a>
 ```
 
-It does not remove the underlines from tag to use in title. I have not found a Hugo template function for that yet (perhaps there is one).
+It does not remove the underlines from tag to use in title. I have not found a
+Hugo template function for that yet (perhaps there is one).
 
 ### Octopress blockquote (blockquote.html)
-Port of the Octopress `blockquote` plugin at http://octopress.org/docs/plugins/blockquote/.
+Port of the Octopress `blockquote` plugin at
+http://octopress.org/docs/plugins/blockquote/.
 
-It supports author, link, source and title. If title is not provided and link is longer than 32 characters, it is cut at the last forward slash similar to the original plugin.
+It supports author, link, source and title. If title is not provided and link is
+longer than 32 characters, it is cut at the last forward slash similar to the
+original plugin.
 
 It can be used as follows (also in `tests/wp-test.markdown`):
 
@@ -149,7 +167,8 @@ Results in:
 ![blockquote-test](images/blockquote.png)
 
 ### Year (year.html)
-Displays the current year - based on shortcode tutorial at https://gohugo.io/templates/shortcode-templates/#single-word-example-year.
+Displays the current year - based on the shortcode tutorial at
+https://gohugo.io/templates/shortcode-templates/#single-word-example-year.
 
 Usage: `{{< year >}}`.
 
@@ -171,25 +190,40 @@ Usage: `{{< mark text="highlighted text" >}}` results in the following HTML:
 
 `<mark>highlighted text</mark>`
 
+### Table of Contents (toc.html)
+Use it to insert a table of contents anywhere in your page. For more information
+about Hugo's table of contents please see
+https://gohugo.io/content-management/toc/.
+
+Usage: `{{< toc >}}`.
+
 ----------
 
 ## Editor Snippets
 I have created snippets for Atom, Sublime and VS Code.
 
 ### Sublime Text Completions
-[Sublime text completions](http://docs.sublimetext.info/en/latest/reference/completions.html) are stored in a `.sublime-completion` file in the `User` directory.
+[Sublime text completions](http://docs.sublimetext.info/en/latest/reference/completions.html)
+are stored in a `.sublime-completion` file in the `User` directory.
 
 ### VS Code Snippets
-[VS Code snippets](editor-snippets/vs-code-markdown.json) can be added to `File > Preferences > User Snippets > markdown.json`. For more information please see:
+[VS Code snippets](editor-snippets/vs-code-markdown.json) can be added to
+`File > Preferences > User Snippets > markdown.json`. For more information
+please see:
 
 * https://code.visualstudio.com/docs/editor/userdefinedsnippets
 
 ### Atom Snippets
-~~I use Atom editor these days so~~ I created a couple of snippets to insert these shortcodes while editing Markdown files. In order to read on how to create snippets please refer to [Atom's Snippets package](https://github.com/atom/snippets).
+~~I use Atom editor these days so~~ I created a couple of snippets to insert
+these shortcodes while editing Markdown files. In order to read on how to create
+snippets please refer to
+[Atom's Snippets package](https://github.com/atom/snippets).
 
 Open your snippets file (on Windows it's `File > Open Your Snippets`) and paste the `editor-snippets\atom-snippets.cson` into it.
 
-My original mistake was to repeat `'.source.gfm'` before the `imgcap` snippet, seems like [cson keys should not be repeated](https://atom.io/docs/latest/using-atom-basic-customization#id-D9ATX).
+My original mistake was to repeat `'.source.gfm'` before the `imgcap` snippet,
+seems like
+[cson keys should not be repeated](https://atom.io/docs/latest/using-atom-basic-customization#id-D9ATX).
 
 For more information please see:
 

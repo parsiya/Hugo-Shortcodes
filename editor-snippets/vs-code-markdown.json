@@ -56,5 +56,14 @@
 			"{{< mark text=\"$1\" >}} $2"
 		],
 		"description": "mark HTML tag"
+	},
+	"toc": {
+		"prefix": "toc",
+		"body": [
+			"{{< toc >}}",
+			"",
+			"$0"
+		],
+		"description": "table of contents"
 	}
 }
