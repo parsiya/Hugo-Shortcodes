@@ -197,6 +197,24 @@ https://gohugo.io/content-management/toc/.
 
 Usage: `{{< toc >}}`.
 
+**Note for Goldmark users:** 
+
+Starting with Hugo 0.60 (I think?), the configuration file has a new section
+named `markup`. We can specify the minimum and maximum heading levels in the
+table of contents. The defaults are as follows which are not that useful. Be
+sure to override them in your site's config file:
+
+```yaml
+markup:
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2
+```
+
+For more information please see
+https://gohugo.io/getting-started/configuration-markup/#table-of-contents.
+
 ----------
 
 ## Editor Snippets
