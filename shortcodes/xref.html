@@ -17,20 +17,20 @@
 
 <!-- support for both named and positional arguments. -->
 
-{{ $title := "" }}
 {{ $path := "" }}
 {{ $anchor := "" }}
+{{ $title := "" }}
 
 {{ if .IsNamedParams }}
   <!-- named version -->
-  {{ $title = .Get "title" }}
   {{ $path = .Get "path" }}
   {{ $anchor = .Get "anchor" }}
+  {{ $title = .Get "title" }}
 {{ else }}
   <!-- positional version -->
-  {{ $title = .Get 0 }}
-  {{ $path = .Get 1 }}
-  {{ $anchor = .Get 2 }}
+  {{ $path = .Get 0 }}
+  {{ $anchor = .Get 1 }}
+  {{ $title = .Get 2 }}
 {{ end }}
 
 <!-- remove "/" from beginning and ending from post's path (if any).
