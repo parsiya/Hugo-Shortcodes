@@ -18,10 +18,11 @@ learn more about shortcodes from
   - [abbr HTML Tag (abbr.html)](#abbr-html-tag-abbrhtml)
   - [mark HTML Tag (mark.html)](#mark-html-tag-markhtml)
   - [Table of Contents (toc.html)](#table-of-contents-tochtml)
+  - [xref (xred.html)](#xref-xredhtml)
 - [Editor Snippets](#editor-snippets)
   - [Sublime Text Completions](#sublime-text-completions)
   - [VS Code Snippets](#vs-code-snippets)
-  - [Atom Snippets](#atom-snippets)
+  - [Atom Snippets - Archived](#atom-snippets---archived)
 - [License](#license)
 
 ### Codecaption (codecaption.html)
@@ -215,6 +216,36 @@ markup:
 For more information please see
 https://gohugo.io/getting-started/configuration-markup/#table-of-contents.
 
+### xref (xred.html)
+Adds text to the input params to create a relref link for my blog. It adds
+hardcoded strings to the path to work with the way I organize my paths. It might
+not be useful for you.
+
+I only use page bundles so it adds /index.markdown to the end of every URL.
+
+This way I can write
+
+```
+{{< xref title="named-title" path="/post/2021/2021-04-30-testing-extensions-edge/" anchor="brief-recon" >}}
+```
+
+instead of 
+
+```
+[Brief Recon of the Nordpass Password Manager]
+  ({{< relref "/post/2021/2021-04-30-testing-extensions-edge/index.markdown#brief-recon" >}}
+  "Brief Recon of the Nordpass Password Manager") 
+```
+
+The first one is more readable in markdown source.
+
+* Anchor is optional. No need to include "#" but if included it will not
+  introduce a bug. The shortcode trims it and adds its own.
+* Path is passed to the relref link so it will panic if the path does not exist.
+* Title is also optional. If not provided, the actual link will be the title.
+  I.e., `.Site.BaseURL/$relreflink.`
+-->
+
 ----------
 
 ## Editor Snippets
@@ -231,7 +262,7 @@ please see:
 
 * https://code.visualstudio.com/docs/editor/userdefinedsnippets
 
-### Atom Snippets
+### Atom Snippets - Archived
 ~~I use Atom editor these days so~~ I created a couple of snippets to insert
 these shortcodes while editing Markdown files. In order to read on how to create
 snippets please refer to

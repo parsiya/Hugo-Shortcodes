@@ -1,0 +1,60 @@
+<!-- Author: Parsia Hakimian https://github.com/parsiya/Hugo-Shortcodes -->
+<!-- relref helper for my blog
+
+    Note: This adds text to the input params to create a relref link for my
+    blog. It adds hardcoded strings to the path to work with the way I organize
+    my paths. It might not be useful for you.
+
+    My posts are in /post/year/yyyy-mm-dd-name-of-post/index.markdown so this
+    helps make my markdown documents easier to read.
+
+    Anchor is optional. No need to include "#" but if included it will not
+    introduce a bug. The shortcode trims it and adds its own.
+    Path is passed to the relref link so it will panic if the path does not exist.
+    Title is also optional. If not provided, the actual link will be the title.
+    I.e., .Site.BaseURL/$relreflink.
+-->
+
+<!-- support for both named and positional arguments. -->
+
+{{ $title := "" }}
+{{ $path := "" }}
+{{ $anchor := "" }}
+
+{{ if .IsNamedParams }}
+  <!-- named version -->
+  {{ $title = .Get "title" }}
+  {{ $path = .Get "path" }}
+  {{ $anchor = .Get "anchor" }}
+{{ else }}
+  <!-- positional version -->
+  {{ $title = .Get 0 }}
+  {{ $path = .Get 1 }}
+  {{ $anchor = .Get 2 }}
+{{ end }}
+
+<!-- remove "/" from beginning and ending from post's path (if any).
+    Now, we don't care if we have included them in the params or not. -->
+{{ $path := trim $path "/" }}
+
+<!-- add "/index.markdown" to the end -->
+{{ $path = print $path "/index.markdown" }}
+
+<!-- check if anchor exists, if so add # to the beginning and concat with path -->
+{{ if ne $anchor "" }}
+  <!-- trim # from the beginning (if any) so we do not need to worry if it's
+  already there -->
+  {{ $path = print $path "#" (trim $anchor "#") }}
+{{ end }}
+
+<!-- now pass it to the relref function -->
+{{ $relreflink := relref . $path }}
+
+<!-- if title does not exist, use {{.Site.BaseURL}}{{$relreflink}} as title -->
+{{ if eq $title "" }}
+  {{ $title = print .Site.BaseURL $relreflink }}
+{{ end }}
+
+<!-- the final link should look like this -->
+<!-- <a href="path-from-relref" title="title" rel="nofollow" target="_blank">title</a> -->
+<a href="{{ $relreflink }}" title="{{ $title }}" rel="nofollow" target="_blank">{{ $title }}</a>

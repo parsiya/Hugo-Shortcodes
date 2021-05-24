@@ -10,6 +10,7 @@
       { "trigger": "year\tCurrent Year Hugo Shortcode", "contents": "{{< year >}} $1" },
       { "trigger": "abbr\tabbr tag Hugo Shortcode", "contents": "{{< abbr title="$1" text="$2" >}} $3" },
       { "trigger": "mark\tmark tag Hugo Shortcode", "contents": "{{< mark text="$1" >}} $2" },
-      { "trigger": "toc\ttable of contents Hugo Shortcode", "contents": "{{< toc >}}\n\n$1" }
+      { "trigger": "toc\ttable of contents Hugo Shortcode", "contents": "{{< toc >}}\n\n$1" },
+      { "trigger": "xref\txref Hugo Shortcode", "contents": "{{< xref path="$1" title="$2" anchor="$3" >}}" }
    ]
 }

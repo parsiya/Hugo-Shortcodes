@@ -46,14 +46,14 @@
 	"abbr": {
 		"prefix": "abbr",
 		"body": [
-			"{{< abbr title=\"$1\" text=\"$2\" >}} $3"
+			"{{< abbr title=\"${1:title}\" text=\"${2:text}\" >}} $0"
 		],
 		"description": "abbr HTML tag"
 	},
 	"mark": {
 		"prefix": "mark",
 		"body": [
-			"{{< mark text=\"$1\" >}} $2"
+			"{{< mark text=\"${1:marked-text}\" >}} $0"
 		],
 		"description": "mark HTML tag"
 	},
@@ -65,5 +65,12 @@
 			"$0"
 		],
 		"description": "table of contents"
+	},
+	"xref": {
+		"prefix": "xref",
+		"body": [
+			"{{< xref path=\"/post/2021/${1:2021-01-21-name-of-post}\" title=\"${2:title}\" anchor=\"${3:no need to include # in anchor}\" >}}"
+		],
+		"description": "xref shortcode used instead of relref"
 	}
 }
