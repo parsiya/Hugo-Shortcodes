@@ -21,6 +21,7 @@ learn more about shortcodes from
   - [xref (xref.html)](#xref-xrefhtml)
     - [Path](#path)
     - [Anchor](#anchor)
+    - [Text](#text)
     - [Title](#title)
 - [Editor Snippets](#editor-snippets)
   - [Sublime Text Completions](#sublime-text-completions)
@@ -224,13 +225,12 @@ Adds text to the input params to create a relref link for my blog. It adds
 hardcoded strings to the path to work with the way I organize my paths. It might
 not be useful for you.
 
-
-
-This way I can write
+These two are identical
 
 ```
-{{< xref title="Brief Recon of the Nordpass Password Manager"
-  path="/post/2021/2021-04-30-testing-extensions-edge/" anchor="brief-recon" >}}
+{{< xref text="Brief Recon of the Nordpass Password Manager"
+  path="/post/2021/2021-04-30-testing-extensions-edge/" anchor="brief-recon"
+  title="Brief Recon" >}}
 ```
 
 instead of 
@@ -238,20 +238,20 @@ instead of
 ```
 [Brief Recon of the Nordpass Password Manager]
   ({{< relref "/post/2021/2021-04-30-testing-extensions-edge/index.markdown#brief-recon" >}}
-  "Brief Recon of the Nordpass Password Manager") 
+  "Brief Recon)
 ```
 
 We can also use positional arguments.
 
 ```
-{{< xref "path" "anchor" "title" >}}
+{{< xref "path" "text" "title" "anchor" >}}
 
 {{< xref "/post/2021/2021-04-30-testing-extensions-edge/" "brief-recon"
-  "Brief Recon of the Nordpass Password Manager" >}}
+  "Brief Recon of the Nordpass Password Manager" "Brief Recon" >}}
 ```
 
-With positional arguments, we can only include path, or path and anchor, but we
-cannot use path and title.
+With positional arguments, we cannot skip arguments. E.g., we can have path and
+anchor but not
 
 ```
 {{< xref "/post/2021/2021-04-30-testing-extensions-edge/" >}}
@@ -269,15 +269,24 @@ cannot use path and title.
 
 #### Anchor
 
-* Anchor is optional.
+* Link's anchor.
+* Optional.
 * No need to include `#` but if included it will not introduce a bug. The
   shortcode trims it and adds its own.
 
+#### Text
+
+* The link's text.
+* Optional.
+* If not provided, the text will be the same as the link. I.e.,
+  `.Site.BaseURL/$relreflink`.
+
 #### Title
 
-* Title is optional.
-* If not provided, the title will be the same as the link. I.e.,
-  `.Site.BaseURL/$relreflink`.
+* The text that appears on the mouse tooltip when it's over the link. The
+  `title` HTML attribute for the `a` tag.
+* Optional.
+* If not provided, it will be the same as text.
 
 ----------
 

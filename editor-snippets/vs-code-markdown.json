@@ -69,7 +69,7 @@
 	"xref": {
 		"prefix": "xref",
 		"body": [
-			"{{< xref path=\"/post/2021/${1:2021-01-21-name-of-post}\" title=\"${2:title}\" >}}"
+			"{{< xref path=\"/post/2021/${1:2021-01-21-name-of-post}\" text=\"${2:text}\" >}}"
 		],
 		"description": "xref shortcode used instead of relref"
 	}
