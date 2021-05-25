@@ -37,8 +37,14 @@
     Now, we don't care if we have included them in the params or not. -->
 {{ $path := trim $path "/" }}
 
-<!-- add "/index.markdown" to the end -->
-{{ $path = print $path "/index.markdown" }}
+<!-- supporting older posts that do not use page bundle
+    Check if the post ends with .md or .markdown, if so, do not add `/index.markdown`
+    to the end. -->
+
+{{ if not (or (strings.HasSuffix $path ".markdown") (strings.HasSuffix $path ".md") ) }}
+  <!-- add "/index.markdown" to the end -->
+  {{ $path = print $path "/index.markdown" }}
+{{ end }}
 
 <!-- check if anchor exists, if so add # to the beginning and concat with path -->
 {{ if ne $anchor "" }}

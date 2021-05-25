@@ -19,6 +19,9 @@ learn more about shortcodes from
   - [mark HTML Tag (mark.html)](#mark-html-tag-markhtml)
   - [Table of Contents (toc.html)](#table-of-contents-tochtml)
   - [xref (xref.html)](#xref-xrefhtml)
+    - [Path](#path)
+    - [Anchor](#anchor)
+    - [Title](#title)
 - [Editor Snippets](#editor-snippets)
   - [Sublime Text Completions](#sublime-text-completions)
   - [VS Code Snippets](#vs-code-snippets)
@@ -221,7 +224,7 @@ Adds text to the input params to create a relref link for my blog. It adds
 hardcoded strings to the path to work with the way I organize my paths. It might
 not be useful for you.
 
-I only use page bundles so it adds /index.markdown to the end of every URL.
+
 
 This way I can write
 
@@ -256,11 +259,25 @@ cannot use path and title.
 {{< xref "/post/2021/2021-04-30-testing-extensions-edge/" "brief-recon" >}}
 ```
 
+#### Path
+
 * Path is passed to the relref link so it will panic if the path does not exist.
-* Anchor is optional. No need to include "#" but if included it will not
-  introduce a bug. The shortcode trims it and adds its own.
-* Title is optional. If not provided, the actual link will be the title. I.e.,
-  `.Site.BaseURL/$relreflink.`
+* If the path does not end in `.md` or `.markdown` it adds `/index.markdown` to
+  the end of it to support page bundles.
+* Don't worry about including `/` at the beginning or in the end, the shortcode
+  removes them and adds its own.
+
+#### Anchor
+
+* Anchor is optional.
+* No need to include `#` but if included it will not introduce a bug. The
+  shortcode trims it and adds its own.
+
+#### Title
+
+* Title is optional.
+* If not provided, the title will be the same as the link. I.e.,
+  `.Site.BaseURL/$relreflink`.
 
 ----------
 
