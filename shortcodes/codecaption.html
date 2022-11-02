@@ -3,11 +3,14 @@
 <!-- codecaption short code - basically this is normal highlighted code with caption on top.
      see readme for usage -->
 
+{{- $language := .Get "lang" -}}
+{{- $options := .Get (default "linenos=true" "options" )  -}}
+{{- $showlang := .Get (default false "showlang" )  -}}
 <figure class="code">
-  <figcaption>
-  	<span>{{ .Get "title" }}</span>
+  <figcaption class="codecaption">
+    <span>{{ .Get "title" }} {{- if ( $showlang ) -}} <small style="float:right; "><sub>Lang: {{$language }}</sub></small> {{end}} </span>
   </figcaption>
   <div class="codewrapper">
-    {{ highlight (trim .Inner "\n\r") (.Get "lang") "linenos=true" }}
+    {{ highlight (trim .Inner "\n\r") $language $options  }}
   </div>
 </figure>
